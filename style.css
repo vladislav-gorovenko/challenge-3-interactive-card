@@ -121,17 +121,13 @@ button {
     flex-direction: column;
     justify-content: space-between;
     padding: 3rem;
-    /* transform: translateX(20%); */
 }
 
 .input {
     width: 100%;
-    padding: 1.2rem;
     font-size: 2rem;
-    border: 1px solid var(--dark-grayish-violet);
+    border: none;
     outline: none;
-    margin-top: 1rem;
-    cursor: pointer;
 }
 
 .input:focus {
@@ -139,6 +135,31 @@ button {
     border-image: var(--linear-gradient-active-input-border);
     border-width: 1px;
     border-image-slice: 2;
+}
+
+.input-container {
+    position: relative;
+    margin-top: 1rem;
+    padding: 1.2rem;
+    background-clip: padding-box;
+    background: white;
+    cursor: pointer;
+    border-radius: 1rem;
+    border: 2px solid var(--dark-grayish-violet);
+}
+
+.input-container:focus-within {
+    border: 2px solid transparent;
+}
+
+.input-container:focus-within::after {
+    content: '';
+    position: absolute;
+    background: var(--linear-gradient-active-input-border);
+    top: -4px; bottom: -4px; 
+    left: -4px; right: -4px;
+    z-index: -1;
+    border-radius: 1.2rem;
 }
 
 .exp-date-and-cvc {
@@ -153,7 +174,7 @@ button {
     flex-basis: 50%;
 }
 
-.exp-date-inputs input:nth-of-type(2) {
+.exp-date-inputs .input-container:nth-of-type(2) {
     margin-left: 2rem;
 }
 
