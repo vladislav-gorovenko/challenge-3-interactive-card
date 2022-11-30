@@ -162,6 +162,7 @@ button {
     border-radius: 1.2rem;
 }
 
+
 .exp-date-and-cvc {
     display: flex;
     flex-direction: row;
@@ -190,9 +191,13 @@ button {
 }
 
 .error {
-    color: var(--red-input-errors);
     margin-top: 1rem;
     font-size: 1.5rem;
+    color: transparent;
+}
+
+.error.active {
+    color: var(--red-input-errors);
 }
 
 .submit-btn {
@@ -202,6 +207,7 @@ button {
     color: var(--white);
     font-size: 2rem;
 }
+
 
 @media (max-width: 1300px) {
     .main {
