@@ -30,7 +30,7 @@
                     <div class="cardholder-name">
                         <p class="title">CARDHOLDER NAME</p>
                         <div class="input-container">
-                            <input class="input" name="cardholder-name" id="cardholder-name" minlength="5" maxlength="30" placeholder="e.g. Vladislav Gorovenko" required pattern="\D*\s\D*">
+                            <input class="input" name="cardholder-name" id="cardholder-name" minlength="5" maxlength="30" placeholder="e.g. Vladislav Gorovenko" required pattern="\D*">
                         </div>
                         <p class="error cardholder-name-error">'</p>
                     </div>
@@ -52,12 +52,12 @@
                                     <input class="input" id="exp-date-input-two" name="exp-yy" minlength="2" maxlength="2" placeholder="YY" required pattern="\d{2}">
                                 </div>
                             </div>
-                            <p class="error exp-date-input-one-error exp-date-input-two-error"></p>
+                            <p class="error exp-date-input-one-error exp-date-input-two-error">'</p>
                         </div>
                         <div class="cvc">
                             <p class="title">CVC</p>
                             <div class="input-container">
-                                <input class="input cvc-input" name="cvc" id="cvc" minlength="3" maxlength="3" placeholder="e.g. 123" type="text" required pattern="\d{3}">  
+                                <input class="input" id="cvc-input" name="cvc" id="cvc" minlength="3" maxlength="3" placeholder="e.g. 123" type="text" required pattern="\d{3}">  
                             </div>
                             <p class="error cvc-input-error">'</p>
                         </div>

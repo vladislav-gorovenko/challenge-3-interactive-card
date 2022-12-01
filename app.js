@@ -1,30 +1,70 @@
 let form = document.getElementsByTagName("form")[0]
+let allInputsEl = document.querySelectorAll(".input")
 
-let inputsWithNumbersIds = ["card-number", "exp-date-input-one", "exp-date-input-two", "cvc"]
-console.log(inputsWithNumbersIds.includes("card-number"))
-
-// form.addEventListener("input", (event) => {
-//     allInputsEl.forEach(inputEl => {
-//         console.log(inputEl.validity.patternMismatch)
-//     })
-// })
+let inputsWithNumbersIds = ["card-number", "exp-date-input-one", "exp-date-input-two", "cvc-input"]
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
     allInputsEl.forEach(inputEl => {
-        if (inputEl.validity.patternMismatch) {
-            let errorEl = document.querySelector(`.${inputEl.id}-error`)
-            let numbersOrLetters = ""
-            if (inputsWithNumbersIds.includes(errorEl.id)) {
-                numbersOrLetters = "numbers"
-            } else {
-                numbersOrLetters = "letters"
+
+        let errorEl = document.querySelector(`.${inputEl.id}-error`)
+        let firstExpDateInputValidity = document.querySelector("#exp-date-input-one").checkValidity()
+
+        if (inputEl.checkValidity()) {
+            // if all valid 
+            if (errorEl.classList.contains("active")) {
+                errorEl.classList.remove("active")
+                if (inputEl.id == "exp-date-input-two" && !firstExpDateInputValidity) {
+                    errorEl.classList.add("active")
+                }
             }
-            errorEl.innerText = `Wrong format, ${numbersOrLetters} only`
-            if (!errorEl.classList.contains("active")) {
-                errorEl.classList.add("active")
+            if (inputEl.parentElement.classList.contains("wrong-input")) {
+                inputEl.parentElement.classList.remove("wrong-input")
+            }
+        } else {
+            // changing color of parent container to red
+            if (!inputEl.parentElement.classList.contains("wrong-input")) {
+                inputEl.parentElement.classList.add("wrong-input")
+            }
+
+            // if not valid
+            // if empty values
+            if (inputEl.validity.valueMissing) {
+                errorEl.innerText = `Can't be blank`
+                if (!errorEl.classList.contains("active")) {
+                    errorEl.classList.add("active")
+                }
+            }
+
+            if (inputEl.validity.tooShort) {
+                errorEl.innerText = `Shall be ${inputEl.minLength} characters. You entered ${inputEl.value.length}.`
+                if (!errorEl.classList.contains("active")) {
+                    errorEl.classList.add("active")
+                }
+            }
+
+            // if there is pattern mismatch 
+            if (inputEl.validity.patternMismatch) {
+                let numbersOrLetters = ""
+                let numbersRegex = /^[0-9 ]+$/
+                if (inputsWithNumbersIds.includes(inputEl.id)) {
+                    numbersOrLetters = "numbers"
+                } else {
+                    numbersOrLetters = "letters"
+                }
+                let errorText = `Wrong format, ${numbersOrLetters} only`
+                if (numbersOrLetters == "numbers") {
+                    if(numbersRegex.test(inputEl.value) === true) {
+                        errorText = `Refer to example ${inputEl.getAttribute("placeholder")}`
+                    }
+                }
+                errorEl.innerText = errorText
+                if (!errorEl.classList.contains("active")) {
+                    errorEl.classList.add("active")
+                }
             }
         }
     })
 })
 
+// if input one contains an error, then don't remove active from input two

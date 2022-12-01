@@ -187,12 +187,12 @@ button {
 }
 
 .wrong-input {
-    border: 1px solid var(--red-input-errors);
+    border: 2px solid var(--red-input-errors);
 }
 
 .error {
     margin-top: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: transparent;
 }
 
@@ -266,6 +266,6 @@ button {
     }
 
     .form {
-        padding: 5rem;
+        padding: 3rem;
     }
 }
