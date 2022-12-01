@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    font-family: 'Space Grotesk';
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 500;
     font-size: 1.8rem;
 }
@@ -29,6 +29,10 @@ body {
 
 button {
     border: none;
+}
+
+input {
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 /* specific styles */
@@ -94,6 +98,12 @@ button {
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
+}
+
+.card-front-date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-back-cvc {

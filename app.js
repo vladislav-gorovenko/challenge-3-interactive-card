@@ -1,8 +1,14 @@
 let form = document.getElementsByTagName("form")[0]
 let allInputsEl = document.querySelectorAll(".input")
+let cardFrontNameEl = document.querySelector(".card-front-name")
+let cardFrontNumberEl = document.querySelector(".card-front-number")
+let cardFrontDateFirstEl = document.querySelector(".card-front-date-first")
+let cardFrontDateSecondEl = document.querySelector(".card-front-date-second")
+let cardBackCvcEl = document.querySelector(".card-back-cvc")
 
 let inputsWithNumbersIds = ["card-number", "exp-date-input-one", "exp-date-input-two", "cvc-input"]
 
+// validation of form
 form.addEventListener("submit", (event) => {
     event.preventDefault()
     allInputsEl.forEach(inputEl => {
@@ -66,5 +72,31 @@ form.addEventListener("submit", (event) => {
         }
     })
 })
+
+
+// updating values of the card to the left
+allInputsEl.forEach((input) => {
+    input.addEventListener("input", (e)=> {
+        if (e.target.id == "cardholder-name") {
+            cardFrontNameEl.innerText = e.target.value.toUpperCase()
+        }
+        if (e.target.id == "card-number") {
+            cardFrontNumberEl.innerText = e.target.value
+        }
+        if (e.target.id == "exp-date-input-one") {
+            cardFrontDateFirstEl.innerText = e.target.value
+        }
+        if (e.target.id == "exp-date-input-two") {
+            cardFrontDateSecondEl.innerText = "/" + e.target.value
+        }
+        if (e.target.id == "cvc-input") {
+            cardBackCvcEl.innerText = e.target.value
+        }
+    })
+})
+
+//
+
+
 
 // if input one contains an error, then don't remove active from input two
