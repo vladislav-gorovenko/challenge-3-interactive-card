@@ -125,6 +125,7 @@ input {
 }
 
 .form {
+    position: relative;
     width: 520px;
     height: 500px;
     display: flex;
@@ -210,12 +211,31 @@ input {
     color: var(--red-input-errors);
 }
 
-.submit-btn {
+.btn {
     width: 100%;
     padding: 2rem;
     background: var(--very-dark-violet);
     color: var(--white);
     font-size: 2rem;
+}
+
+.success {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    background: white;
+    z-index: 100;
+    padding: 5rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.success.on {
+    display: flex;
 }
 
 

@@ -1,3 +1,4 @@
+// [selectors]
 let form = document.getElementsByTagName("form")[0]
 let allInputsEl = document.querySelectorAll(".input")
 let cardFrontNameEl = document.querySelector(".card-front-name")
@@ -5,10 +6,15 @@ let cardFrontNumberEl = document.querySelector(".card-front-number")
 let cardFrontDateFirstEl = document.querySelector(".card-front-date-first")
 let cardFrontDateSecondEl = document.querySelector(".card-front-date-second")
 let cardBackCvcEl = document.querySelector(".card-back-cvc")
+let successEl = document.querySelector(".success")
+// need to add on class to .success when all the inputs are valid
 
+// [c: need this variable for validation of inputs]
 let inputsWithNumbersIds = ["card-number", "exp-date-input-one", "exp-date-input-two", "cvc-input"]
 
-// validation of form
+
+// [event listeners]
+// [c: validation of form]
 form.addEventListener("submit", (event) => {
     event.preventDefault()
     allInputsEl.forEach(inputEl => {
@@ -73,8 +79,7 @@ form.addEventListener("submit", (event) => {
     })
 })
 
-
-// updating values of the card to the left
+// [c: updating values of the card to the left]
 allInputsEl.forEach((input) => {
     input.addEventListener("input", (e)=> {
         if (e.target.id == "cardholder-name") {
@@ -95,8 +100,3 @@ allInputsEl.forEach((input) => {
     })
 })
 
-//
-
-
-
-// if input one contains an error, then don't remove active from input two
