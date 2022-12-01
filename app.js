@@ -7,7 +7,6 @@ let cardFrontDateFirstEl = document.querySelector(".card-front-date-first")
 let cardFrontDateSecondEl = document.querySelector(".card-front-date-second")
 let cardBackCvcEl = document.querySelector(".card-back-cvc")
 let successEl = document.querySelector(".success")
-// need to add on class to .success when all the inputs are valid
 
 // [c: need this variable for validation of inputs]
 let inputsWithNumbersIds = ["card-number", "exp-date-input-one", "exp-date-input-two", "cvc-input"]
@@ -77,6 +76,12 @@ form.addEventListener("submit", (event) => {
             }
         }
     })
+    // bring success window if form fully validates
+    if (form.checkValidity()) {
+        if (!successEl.classList.contains("on")) {
+            successEl.classList.add("on")
+        }
+    }
 })
 
 // [c: updating values of the card to the left]
@@ -100,3 +105,8 @@ allInputsEl.forEach((input) => {
     })
 })
 
+
+
+// need to add on class to .success when all the inputs are valid
+// need to style .success element 
+// need to play with media queries to make it's displayed good when 
