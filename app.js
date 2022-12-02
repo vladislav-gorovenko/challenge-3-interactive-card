@@ -104,9 +104,3 @@ allInputsEl.forEach((input) => {
         }
     })
 })
-
-
-
-// need to add on class to .success when all the inputs are valid
-// need to style .success element 
-// need to play with media queries to make it's displayed good when 
