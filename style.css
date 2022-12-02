@@ -205,6 +205,8 @@ input {
     margin-top: 1rem;
     font-size: 1.2rem;
     color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .error.active {
@@ -302,5 +304,44 @@ input {
 
     .form {
         padding: 3rem;
+    }
+}
+
+@media (max-width: 650px) {
+
+    body {
+        min-height: 100vh;
+    }
+
+    .main {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(20vh, 250px) 1fr;
+    }
+
+    .secondary-window {
+        background-image: url(./images/bg-main-mobile.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .secondary-container {
+        height: 450px;
+    }
+
+    .card-front, .card-back {
+        height: 180px;
+        width: 327px;
+    }
+    
+    .card-front-number {
+        font-size: 1.2rem;
+    }
+    
+    .card-back-cvc {
+        font-size: 1.2rem;
+    }
+
+    .form {
+        padding: 5rem;
     }
 }
