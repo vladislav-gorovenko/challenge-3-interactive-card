@@ -14,7 +14,6 @@ body {
     font-family: 'Space Grotesk';
     font-weight: 500;
     font-size: 1.3rem;
-    height: auto;
 }
 
 :root {
@@ -313,7 +312,7 @@ input {
         font-size: 1.3rem;
     }
 
-    img {
+    .card-img {
         height: 30px;
     }
 
@@ -321,5 +320,9 @@ input {
         transform: translateX(0%) translateY(-10%);
         margin-left: 1rem;
         margin-right: 1rem;
+    }
+
+    .error {
+        font-size: 1rem;
     }
 }
