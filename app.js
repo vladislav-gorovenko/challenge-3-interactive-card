@@ -3,6 +3,7 @@ let form = document.getElementsByTagName("form")[0]
 let allInputsEl = document.querySelectorAll(".input")
 let cardFrontNameEl = document.querySelector(".card-front-name")
 let cardFrontNumberEl = document.querySelector(".card-front-number")
+cardFrontNumberEl.innerText = "0000 0000 0000 0000"
 let cardFrontDateFirstEl = document.querySelector(".card-front-date-first")
 let cardFrontDateSecondEl = document.querySelector(".card-front-date-second")
 let cardBackCvcEl = document.querySelector(".card-back-cvc")
